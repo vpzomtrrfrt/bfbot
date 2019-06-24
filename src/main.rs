@@ -11,7 +11,7 @@ enum Error {
 struct Handler;
 
 impl serenity::client::EventHandler for Handler {
-    fn message(&self, _: serenity::client::Context, msg: serenity::model::channel::Message) {
+    fn message(&self, ctx: serenity::client::Context, msg: serenity::model::channel::Message) {
         if &msg.content[..4] == "%bf " {
             let program = &msg.content[4..];
             let mut stream = memstream::MemStream::new();
@@ -20,9 +20,9 @@ impl serenity::client::EventHandler for Handler {
             let output = String::from_utf8(stream.unwrap()).map_err(|e|Error::ParseError(e));
             match match result.and(output) {
                 Ok(ref output) => {
-                    msg.reply(&output)
+                    msg.reply(&ctx, &output)
                 },
-                Err(err) => msg.reply(&format!("Error: {:?}", err))
+                Err(err) => msg.reply(&ctx, &format!("Error: {:?}", err))
             } {
                 Ok(_) => {},
                 Err(e) => {eprintln!("Failed something: {}", e);}
