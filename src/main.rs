@@ -11,7 +11,7 @@ struct Handler;
 
 impl serenity::client::EventHandler for Handler {
     fn message(&self, ctx: serenity::client::Context, msg: serenity::model::channel::Message) {
-        if &msg.content[..4] == "%bf " {
+        if msg.content.starts_with("%bf ") {
             let program = &msg.content[4..];
             let mut output = Vec::new();
             let mut input: &[u8] = &[];
