@@ -1,6 +1,5 @@
 extern crate serenity;
 extern crate heliometer;
-extern crate memstream;
 
 #[derive(Debug)]
 enum Error {
@@ -14,10 +13,10 @@ impl serenity::client::EventHandler for Handler {
     fn message(&self, ctx: serenity::client::Context, msg: serenity::model::channel::Message) {
         if &msg.content[..4] == "%bf " {
             let program = &msg.content[4..];
-            let mut stream = memstream::MemStream::new();
+            let mut output = Vec::new();
             let mut input: &[u8] = &[];
-            let result = heliometer::execute(program, &mut input, &mut stream).map_err(|e|Error::BFError(e));
-            let output = String::from_utf8(stream.unwrap()).map_err(|e|Error::ParseError(e));
+            let result = heliometer::execute(program, &mut input, &mut output).map_err(|e|Error::BFError(e));
+            let output = String::from_utf8(output).map_err(|e|Error::ParseError(e));
             match match result.and(output) {
                 Ok(ref output) => {
                     msg.reply(&ctx, &output)
