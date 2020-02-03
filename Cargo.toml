@@ -4,5 +4,5 @@ version = "0.1.0"
 authors = ["Colin Reeder <vpzomtrrfrt@gmail.com>"]
 
 [dependencies]
-serenity = "0.6.0"
+serenity = "0.8.0"
 heliometer = "0.5.10"
