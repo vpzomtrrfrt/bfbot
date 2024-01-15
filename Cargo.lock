@@ -51,7 +51,7 @@ dependencies = [
  "futures",
  "heliometer",
  "noob",
- "tokio 0.2.21",
+ "tokio",
 ]
 
 [[package]]
@@ -243,7 +243,7 @@ checksum = "87750cf4b7a4c0625b1529e4c543c2182106e4dedc60a2a6455e00d212c489ac"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.48",
+ "syn",
 ]
 
 [[package]]
@@ -271,7 +271,7 @@ dependencies = [
  "futures-sink",
  "futures-task",
  "memchr",
- "pin-project-lite 0.2.13",
+ "pin-project-lite",
  "pin-utils",
  "slab",
 ]
@@ -320,6 +320,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3acca12f60fec15dbb5c2b02c1f94493f9a6f08973471696484cb1b72f6e612b"
 
 [[package]]
+name = "hermit-abi"
+version = "0.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d77f7ec81a6d05a3abb01ab6eb7590f6083d08449fe5a1c8b1e620283546ccb7"
+
+[[package]]
 name = "http"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -338,7 +344,7 @@ checksum = "7ceab25649e9960c0311ea418d17bee82c0dcec1bd053b5f9a66e265a693bed2"
 dependencies = [
  "bytes 1.5.0",
  "http",
- "pin-project-lite 0.2.13",
+ "pin-project-lite",
 ]
 
 [[package]]
@@ -370,7 +376,7 @@ dependencies = [
  "itoa 0.4.4",
  "pin-project",
  "socket2 0.3.19",
- "tokio 1.35.1",
+ "tokio",
  "tower-service",
  "tracing",
  "want",
@@ -385,7 +391,7 @@ dependencies = [
  "bytes 1.5.0",
  "hyper",
  "native-tls",
- "tokio 1.35.1",
+ "tokio",
  "tokio-native-tls",
 ]
 
@@ -503,9 +509,19 @@ dependencies = [
  "serde",
  "serde_derive",
  "serde_json",
- "tokio 1.35.1",
+ "tokio",
  "tokio-tungstenite",
  "url",
+]
+
+[[package]]
+name = "num_cpus"
+version = "1.16.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4161fcb6d602d4d2081af7c3a45852d875a03dd337a6bfdd6e06407b61342a43"
+dependencies = [
+ "hermit-abi",
+ "libc",
 ]
 
 [[package]]
@@ -549,7 +565,7 @@ checksum = "a948666b637a0f465e8564c73e89d4dde00d72d4d473cc972f390fc3dcee7d9c"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.48",
+ "syn",
 ]
 
 [[package]]
@@ -593,14 +609,8 @@ checksum = "4359fd9c9171ec6e8c62926d6faaf553a8dc3f64e1507e76da7911b4f6a04405"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.48",
+ "syn",
 ]
-
-[[package]]
-name = "pin-project-lite"
-version = "0.1.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "237844750cfbb86f67afe27eee600dfbbcb6188d734139b534cbfbf4f96792ae"
 
 [[package]]
 name = "pin-project-lite"
@@ -791,7 +801,7 @@ checksum = "46fe8f8603d81ba86327b23a2e9cdf49e1255fb94a4c5f297f6ee0547178ea2c"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.48",
+ "syn",
 ]
 
 [[package]]
@@ -853,17 +863,6 @@ checksum = "6e63cff320ae2c57904679ba7cb63280a3dc4613885beafb148ee7bf9aa9042d"
 
 [[package]]
 name = "syn"
-version = "1.0.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "af6f3550d8dff9ef7dc34d384ac6f107e5d31c8f57d9f28e0081503f547ac8f5"
-dependencies = [
- "proc-macro2",
- "quote",
- "unicode-xid",
-]
-
-[[package]]
-name = "syn"
 version = "2.0.48"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0f3531638e407dfc0814761abb7c00a5b54992b849452a0646b7f65c9f770f3f"
@@ -904,7 +903,7 @@ checksum = "fa0faa943b50f3db30a20aa7e265dbc66076993efed8463e8de414e5d06d3471"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 2.0.48",
+ "syn",
 ]
 
 [[package]]
@@ -924,17 +923,6 @@ checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
 
 [[package]]
 name = "tokio"
-version = "0.2.21"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d099fa27b9702bed751524694adbe393e18b36b204da91eb1cbbbbb4a5ee2d58"
-dependencies = [
- "bytes 0.5.4",
- "pin-project-lite 0.1.4",
- "tokio-macros",
-]
-
-[[package]]
-name = "tokio"
 version = "1.35.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c89b4efa943be685f629b149f53829423f8f5531ea21249408e8e2f8671ec104"
@@ -943,20 +931,22 @@ dependencies = [
  "bytes 1.5.0",
  "libc",
  "mio",
- "pin-project-lite 0.2.13",
+ "num_cpus",
+ "pin-project-lite",
  "socket2 0.5.5",
+ "tokio-macros",
  "windows-sys 0.48.0",
 ]
 
 [[package]]
 name = "tokio-macros"
-version = "0.2.5"
+version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f0c3acc6aa564495a0f2e1d59fab677cd7f81a19994cfc7f3ad0e64301560389"
+checksum = "5b8a1e28f2deaa14e508979454cb3a223b10b938b45af148bc0986de36f1923b"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 1.0.14",
+ "syn",
 ]
 
 [[package]]
@@ -966,7 +956,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bbae76ab933c85776efabc971569dd6119c580d8f5d448769dec1764bf796ef2"
 dependencies = [
  "native-tls",
- "tokio 1.35.1",
+ "tokio",
 ]
 
 [[package]]
@@ -979,7 +969,7 @@ dependencies = [
  "log",
  "native-tls",
  "pin-project",
- "tokio 1.35.1",
+ "tokio",
  "tokio-native-tls",
  "tungstenite",
 ]
@@ -996,7 +986,7 @@ version = "0.1.40"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c3523ab5a71916ccf420eebdf5521fcef02141234bbc0b8a49f2fdc4544364ef"
 dependencies = [
- "pin-project-lite 0.2.13",
+ "pin-project-lite",
  "tracing-core",
 ]
 
@@ -1062,12 +1052,6 @@ checksum = "5c5713f0fc4b5db668a2ac63cdb7bb4469d8c9fed047b1d0292cc7b0ce2ba921"
 dependencies = [
  "tinyvec",
 ]
-
-[[package]]
-name = "unicode-xid"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "826e7639553986605ec5979c7dd957c7895e93eabed50ab2ffa7f6128a75097c"
 
 [[package]]
 name = "url"
