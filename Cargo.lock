@@ -472,9 +472,9 @@ dependencies = [
 
 [[package]]
 name = "noob"
-version = "2.0.0-alpha.3"
+version = "2.0.0-alpha.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4ca1fcaa88a17291c4b79cdad807ce82f1025f6f14511495ea658810e39be862"
+checksum = "39d630277424016a15f86a227d55cbfc2c63a98d19a89957ea42f1fb1904ba94"
 dependencies = [
  "form_urlencoded",
  "futures",
